@@ -4,11 +4,10 @@ Created on Thu Oct 28 14:18:49 2021
 
 @author: bourgeoisc, neverren
 
-A lancer à partir de "D:\Documents\bourgeoisc\BRGM\REN_INTERREG_W4T - General\03 - Réalisation SMA\MHE"
-
-But de ce script: 
-1. Créer une version python scénarisable
-2. On peut facilement lancer une boucle sur les scénarios 
+Master Script:
+Activation Scenario 
+sub-model call
+Writring Result
 """
 
 # Import modules
@@ -27,71 +26,73 @@ import csv
 import os
 
 
-####### Définitions des répertoires 
+####### Repertory Definition 
 Donnees="./Input"
 Dossiers_sorties="./Sorties"
-####### Défintions des mois
+####### Month Defintion
 Months=["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
 #Months=["January","February","March","April","May","June","July","August","September","October","November","December"]
 ####### Défintion des pas de temps
 time=range(1,13,1)
 
-####### Scénario ## 
+####### Scenario ## 
 
-## Choix scénarios :
+## Choice Scenario (manually):
+##See Param_scenario for the signigication of scenario
 
-## 1. Le climat
+## 1. Climate
 Scenario_hydro = "Sec"  # Choix: Ref,DOE,Sec,SecEtendue
 print("Scenario hydro :" , Scenario_hydro) 
 
-## 2. Les métabolites
+## 2. MEtabolite
 Scenario_Metabolite = "Ref"  # Choix: Ref,Abandon,AbandonMax,AbandonMaxK
 print("Scenario_Metabolite :" , Scenario_Metabolite) 
 
-## 3. La demande
-### Pour rappel :
-    #Référence= Etalement saisonnier
-    #Domestique+: Ref + hausse population 10% sur comnmunes littoral
+## 3. Demand
+### For reminder :
+    #Référence=  more tourism in mid-seasonr
+    #Domestique+: Ref + 10% pop growth on littoral municipality
     #Toursitique: Ref+Augmentation Toruisme estival Crozon
     #Capsizun+: Ref+ CapSiZun +Goyen!!!
     
-Activation_Etalement_Saisonnier= "Oui"  # Choix Oui/Non #par défault oui
+Activation_Etalement_Saisonnier= "Oui"  # Choice Oui/Non  (Yes/No)# Default oui(yes)
 print("Activation_Etalement_Saisonnier :" , Activation_Etalement_Saisonnier) 
 
-Activation_Hausse_Population= "Oui"  # Choix Oui/Non # PAr défault non
+Activation_Hausse_Population= "Oui"  # Choice Oui/Non  (Yes/No)# Default oui(yes)
 print("Activation_Hausse_Population :" , Activation_Hausse_Population) 
 
-Activation_Hausse_tourisme= "Oui"  # Choix Oui/Non # PAr défault non
+Activation_Hausse_tourisme= "Oui"  # Choice Oui/Non  (Yes/No)# Default oui(yes)
 print("Activation_Hausse_tourisme :" , Activation_Hausse_tourisme) 
 
-Activation_CapSizun= "Oui"  # Choix Oui/Non # PAr défault non
-Activation_Goyen= "Oui"  # Choix Oui/Non # PAr défault non
+Activation_CapSizun= "Oui"  # Choice Oui/Non  (Yes/No)# Default non(no)
+Activation_Goyen= "Oui"  # Choice Oui/Non  (Yes/No)# Default non(no)
 print("Activation_CapSizun_Goyen :" , Activation_CapSizun +'_'+ Activation_Goyen) 
 
-## 4. La crise
-Activation_Crise= "Oui"  # Choix Oui/Non # Par ddfault non
+## 4. Crise Scenario
+Activation_Crise= "Oui"  # Choice Oui/Non  (Yes/No)# Default non(no)
 if Activation_Crise=="Oui":
-    Mois_crise="Janvier" # Choix = Août, Septembre, Janvier
+    Mois_crise="Janvier" #  Month Choice = Août, Septembre, Janvier (August, September, January)
 print("Activation_Crise :" , Activation_Crise) 
 
 
-### Option: Activation lien LeJuch-Kernevez (par default non)
+### Option: Activation node LeJuch-Kernevez (# Choice Oui/Non Default: Non (no))
 scenario_Juch_Kernevez="Non"
 print("scenario_Juch_Kernevez :" , scenario_Juch_Kernevez) 
 
 
-## 5. Mesure de Gestion
-#Mesure_gestion= "Non" # Choix Oui/Non
+## 5. Adaptation measure (mesure_gestion)
+
+#Mesure_gestion= "Non" # (# Choice Oui/Non Default: Non (no))
 #if Mesure_gestion=="Oui"
-# Rendement
-Scenario_Rendement="Non" # Choix Oui, Non
+# Rendement (Yield of drinking water supply system))
+Scenario_Rendement="Non" # (# Choice Oui/Non Default: Non (no))
 print("Scenario_Rendement :" , Scenario_Rendement) 
 if Scenario_Rendement=="Non":
     mesure1="0"
 else:
     mesure1="1"
-# Economie d'eau
-Scenario_baisse_demande="Non" # Choix Max, Medium, Non
+# Economie d'eau (Water Restriction)
+Scenario_baisse_demande="Non" # Choice Max, Medium, Non (none)
 print("Scenario_baisse_demande :" , Scenario_baisse_demande) 
 if Scenario_baisse_demande=="Non":
     mesure2="0"
@@ -100,7 +101,7 @@ elif Scenario_baisse_demande=="Medium":
 elif Scenario_baisse_demande=="Max":
     mesure2="2"
     
-#Brennilis
+#Brennilis (filling of major Dam)
 scenario_brennilis="Non" # Choix Max, Medium, Non
 print("scenario_brennilis :" , scenario_brennilis) 
 if scenario_brennilis=="Non":
@@ -118,22 +119,21 @@ if scenario_interco_globale=="Oui":
 else:
     mesure4="DLJ0RC0"
 print("scenario_interco_globale :" ,  mesure4) 
-# Kerstrat
 
+# Kerstrat (increased local production)
 scenario_Kerstrat="Non"  # Choix Oui/Non
 if scenario_Kerstrat=="Non":
     mesure4b="0"
 else:
     mesure4b="1"
-# Interco locale
+# Local interco
 scenario_interco_locale="Non"   #Choix Oui/Non # Par ddfault non
 print("scenario_interco_locale :" , scenario_interco_globale+scenario_interco_locale) 
 if scenario_interco_locale=="Non":
     mesure5="0"
 else:
     mesure5="1"
-# Nouvelle carrière 
-
+# New career 
 scenario_nouvelles_carriere="Non"  #Choix Oui/Non # Par ddfault non
 if scenario_nouvelles_carriere=="Oui":
     Carriere_plessis=0 #Choix0/1
@@ -146,7 +146,7 @@ if scenario_nouvelles_carriere=="Non":
   
 print("scenario_nouvelles_carriere :" , scenario_nouvelles_carriere+mesure6) 
 
-# Nouvelle Ressource *CCPF
+# New Ressoruces CCPF
 scenario_nouvelles_Ressources="Non" 
 if scenario_nouvelles_Ressources=="Oui":
     Secteur_Benodet=1 #Choix0/1
@@ -157,6 +157,7 @@ if scenario_nouvelles_Ressources=="Oui":
     mesure7="NR"+str(Secteur_Benodet)+str(Secteur_RoudGwen)+str(Secteur_Lanveron)+str(Secteur_PenALen)+str(Secteur_Brehoulou)
 if scenario_nouvelles_Ressources=="Non":
     mesure7="NR00000"
+    
 # Securisation Reservoir
 scenario_Resilience_Stockage="Non" #Choix Oui/Non # Par ddfault non
 if scenario_Resilience_Stockage=="Oui":
@@ -178,7 +179,7 @@ else:
 ## Choix de la fonction de défaillance (#Utiliser CoutLinéaire pour les tests, CoutQuadratique sinon)
 #Scenario_cout_def="CoutLineaire"
 
-####### Définitions du scnéario
+####### Name Scenario
 if Activation_Crise== "Non" :
     name_simulation='H'+Scenario_hydro+'-M'+Scenario_Metabolite +'-ES_'+Activation_Etalement_Saisonnier +'-HP_'+Activation_Hausse_Population +'-HT_'+ Activation_Hausse_tourisme + 'CS-Go_'+  Activation_CapSizun +'_'+ Activation_Goyen+'-Crise_'+Activation_Crise+ '-LJK'+scenario_Juch_Kernevez+ '-Gestion'+mesure1+mesure2+mesure3+mesure4+mesure4b+mesure5+mesure6+mesure7+mesure8+mesure9
 else :
@@ -196,55 +197,56 @@ os.makedirs(Sorties, exist_ok=True)
 name_Sorties=Sorties+'/results_'
 
 
-#### Eplacement des fichiers hyfro
+#### Hydrologie Data repository
 dossier_Hydro='./../HYDROLOGIE/A - DEBITS PRELEVABLES AULNE ET ST MICHEL - Modif 28_04_22/'
 dossier_Hydro_kerrous='./../HYDROLOGIE/A - Steir Guengat_V2/'
-###### Appels des sous parties
-### Partie 1 Def param et senario
+
+###### Subpart call
+### Part 1:  Paramater and scenario definiton
 print(" Partie 1 :Definition paramétres et Scénarios")
-###1.1 Lecture des Scénarios
+###1.1 Scenario parameter  read
 print("Lecture paramétre Scénarios")
 exec(open("param_scenario.py").read())
-###1.2 Lecture des Paramtres des fonctions de couts
+###1.2 Cost fucntion parmater read
 print("Lecture paramétre Couts")
 exec(open("param_cout.py").read())
 
-###1.3 Lecture des Fonctions  de couts
+###1.3 Cost function load
 print("Lecture Fonctions Couts")
 exec(open("fonctions.py").read())
 
 print("Partie 1 Ok")
 
-### PArtie 2  Data
+### Part 2: Data
 print(" Partie 2 : Lecture des Datas")
-#2.1 lectures des csv d'entrés 
+#2.1  read data  csv
 exec(open("lecture_data.py").read())
 
 print("Data OK")
 
 ### PArtie 3  Scénario
-#3.1 Scénrio 2050
+#3.1 Scenario definiton
 print(" PArtie 3 : Application Scenarios 2050")
 exec(open("Scenario.py").read())
-#3.2 Scénario de gestion
+#3.2 Adaptation scenario definition
 print(" PArtie 3 : Application Mesure Gestion")
 exec(open("Mesure_gestion.py").read())
-### PArtie 4 Probleme
+
+### PArtie 4 Model Defintion (Objective and constraints)
 print(" PArtie 4 : Defintion Objective et Contraintes")
 #exec(open("Model_MHE.py").read())
 exec(open("Model_MHE.py").read())
 print(" Model Ok")
-### PArtie 5 Solce
+
+### PArtie 5 Solve
 print("Debut optimisation")
 opt=SolverFactory("ipopt")      
 #opt=SolverFactory('mindtpy')  
 #opt.options['max_iter']= 5000       
 result=opt.solve(model,tee=True)      
-
-
-
 print("Solve Ok")
-### Partie 5 : Ecriture Resultats
+
+### Partie 5 : Wtring Results
 print("Partie 5: Ecriture Résultats")
 exec(open("export.py").read())
 print("Export OK")
