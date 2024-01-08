@@ -1,0 +1,18 @@
+"ID","nom_ID","Type","ID_COMCOM","Nom_COMCOM","ID_URD","Nom_URD","X","Y","Cost"
+"R7003","Réservoir de Locronan","Réservoir",7,"SMA",700,"SMA",164586.171208,6801363.42638,1
+"R7001","Réservoir de Dinéault","Réservoir",7,"SMA",700,"SMA",171309,6812671,1
+"R7004","Réservoir de Briec","Réservoir",7,"SMA",700,"SMA",175741,6803676,1
+"R7002","Réservoir de Cast (Réservoir de Ménez Quelc'h)","Réservoir",7,"SMA",700,"SMA",173972,6808029,1
+"R1021","Reservoir de la Montagne","Réservoir",1,"CCPCAM",102,"Crozon-Est",157873.070389,6817415.92364,1
+"R2031","Réservoir du Moulin (Le Juch)","Réservoir",2,"DZCO",203,"Le Juch-Pouldergat",160775,6795343,1
+"R3011","Réservoir de Kerandoaré","Réservoir",3,"CCHPB",301,"Saint-Avé",158577,6791767,1
+"R3021","Reservoir de Landudec","Réservoir",3,"CCHPB",302,"Kargamet",153732,6791864,1
+"R3031","Reservoir de Karlaéron","Réservoir",3,"CCHPB",303,"Saint-Ronan",150451,6791563,1
+"R4021","Réservoir de Bénodet","Réservoir",4,"CCPF",402,"Bénodet",169267,6776946,1
+"R4031","Réservoir de Bellevue","Réservoir",4,"CCPF",403,"Lanveron",173412,6780322,1
+"R4051","Réservoir de Lanvéron","Réservoir",4,"CCPF",405,"Saint-Evarzec",179265,6784107,1
+"R4041","Réservoir Garen Seach","Réservoir",4,"CCPF",404,"La-Fôret-Fouesnant",178731,6779798,1
+"R4011","Réservoir de Kerourgué","Réservoir",4,"CCPF",401,"Fouesnant",176295,6777960,1
+"R5151","Réservoir de Menez Krullu","Réservoir",5,"CCPCP",515,"Lothey",177954.620143,6808870.27063,1
+"R5161","Réservoir du Bourg","Réservoir",5,"CCPCP",516,"Gouézec",182088.232939,6808077.4119,1
+"R6141","Réservoir de Cuzon","Réservoir",6,"QBO",614,"Quimper",173081,6790894,1

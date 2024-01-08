@@ -1,0 +1,48 @@
+"ID_TTP","NOM_TTP","NOM_URD","ID_URD","ID_COMCOM","Nom_COMCOM","X","Y","K","V_trai_2019","Type_fil","Cout_moyen_m3"
+"T1011","Usine de Poraon","Crozon-Ouest",101,1,"CCPCAM",150581.8103,6819324.0725,1800,"379757","CAP",0.2
+"T1021","Station de Kernagoff","Crozon-Est",102,1,"CCPCAM",157067.1604,6819380.9779,2400,"803874","T1",0.1
+"T1041","Station de Rozvalen","Le Faou",104,1,"CCPCAM",175623.3558,6818089.1598,400,"80734","T1",0.1
+"T1051","Station de Goastalan","Goastallan",105,1,"CCPCAM",172507.7088,6823262.202,500,"121428","T1",0.1
+"T1052","Station du Pouldu","Pouldu",106,1,"CCPCAM",175623.3558,6818089.1598,500,"107159","T1",0.1
+"T2011","Station de Nankou","Douarnenez",201,2,"DZCO",154331.8337,6800262.2294,3600,"702528","T1",0.1
+"T2012","Usine de Kervignac","Douarnenez",201,2,"DZCO",157288.1956,6801273.622,6000,"408236","T4",0.15
+"T2041","Station de Lezaff","Poullan-sur-Mer",204,2,"DZCO",149472.0366,6799634.4576,600,"200220","T1",0.1
+"T2031","Station de Kerstrat","Le Juch-Pouldergat",203,2,"DZCO",155399.0814,6795555.0474,200,"?","T1",0.1
+"T3011","Station de Saint-avé","Saint-avé",301,3,"CCHPB",157621.062,6790916.4234,1200,"277345","T1",0.1
+"T3021","Station de Kergamet","Kergamet",302,3,"CCHPB",152835.5202,6791073.9522,700,"157411","T1",0.1
+"T3031","Station de Kerlaeron","Saint-Ronan",303,3,"CCHPB",150454.0279,6791565.719,1500,"380782","T1",0.1
+"T4041","Usine de Penalen","La-Fôret-Fouesnant",404,4,"CCPF",177121.1898,6779046.2598,4000,"974380","T4",0.15
+"T4021","Usine de Keraven","Benodet",402,4,"CCPF",171633.3444,6777166.9968,2000,"171404","T2",0.1
+"T4022","Station de Cheffontaine","Benodet",402,4,"CCPF",174074.6679,6778772.8979,250,"91161","T2",0.1
+"T4031","Station de Roud Guen","Lanveron",403,4,"CCPF",172514.8638,6780765.2124,800,"267474","T1",0.1
+"T4051","Station de Lanveron","Saint-Evarzec",405,4,"CCPF",179267.8176,6784082.5998,1200,"158132","T1",0.1
+"T4012","Brehoulou","Fouesnant",401,4,"CCPF",176445,6777420,1250,NA,"T1",0.1
+"T5012","Station de Brigneun","Trevargan",501,5,"CCPCP",165265.717,6817080.2455,10,"4073","T1",0.1
+"T5011","Station de Toul Argloet","Trevargan",501,5,"CCPCP",163347.4306,6817137.1165,60,"24012","T1",0.1
+"T5021","Station de Lescorveau","Saint-Nic",502,5,"CCPCP",160168.0413,6815370.2159,400,"129378","T1",0.1
+"T5031","Station de Kergaoc","Dineault",503,5,"CCPCP",164188.0255,6814596.0297,300,"119429","T1",0.1
+"T5032","Station de Kernevez","Dineault",503,5,"CCPCP",167278.378,6814113.1074,90,NA,"T1",0.1
+"T5041","Station de Plomodiern","Plomodiern",504,5,"CCPCP",163509.1314,6811916.375,480,"138626","T1",0.1
+"T5071","Station de Coatiliger","Saint-Segal",507,5,"CCPCP",177190.0266,6816017.5416,100,"47859","T1",0.1
+"T5091","Station du Loch","Chateaulin",509,5,"CCPCP",173699.6591,6809853.9191,720,"146904","T2",0.1
+"T5111","Station de Penbis","Cast",511,5,"CCPCP",171006.9234,6808787.2586,300,"105564","T1",0.1
+"T5121","Station de Garzolic","Pleyben",512,5,"CCPCP",185727.1752,6820066.9512,320,"84568","T2",0.1
+"T5151","Station de Runigou Vihan","Lothey",515,5,"CCPCP",178418.4144,6807880.2608,400,"69839","T2",0.1
+"T5161","Station de Toulharn","Gouézec",516,5,"CCPCP",182109.1297,6808061.7798,300,"84802","T1",0.1
+"T5162","Station de Moulin Neuf","Gouézec",516,5,"CCPCP",179035.7167,6807355.6059,500,"113193","T1",0.1
+"T5131","Usine Gars ar Garo / Station du réservoir du bourg","Le Cloître-Pleyben",513,5,"CCPCP",189574,6817306,90,NA,"T2",0.1
+"T5171","Usine de Kerbalaen","Lannédern",517,5,"CCPCP",186962.722,6820971.206,660,NA,"T2",0.1
+"T6011","Station de Kergoat","Quemeneven",601,6,"QBO",167364.2714,6803389.434,150,"9968","T1",0.1
+"T6021","Station de Kervarvarn","Locronan",602,6,"QBO",165365.6502,6802509.4278,240,"51253","T1",0.1
+"T6051","Station de Kernévez","Ploneis",605,6,"QBO",163066.1742,6792459.4062,1200,"206702","T1",0.1
+"T6061","Station de Boissavarn","Plomelin",606,6,"QBO",167741.7492,6785579.6328,900,"222533","T1",0.1
+"T6071","Station de Kervoelig","Pluguffan",607,6,"QBO",165630.3717,6789168.1198,960,"189861","T1",0.1
+"T6111","Station de Ty Fao","Landrevarzec",611,6,"QBO",176737.236,6799958.7184,600,"251257","T2",0.1
+"T6101","Station de Traitement de Goulitquer","Edern",610,6,"QBO",182684.9478,6801277.9313,800,"189533","T1",0.1
+"T6102","Station de Nenez","Edern",610,6,"QBO",184749.7461,6802912.4223,400,"61754","T1",0.1
+"T6121","Station de Kermaria","Landulal",612,6,"QBO",181764.5918,6797218.0663,360,"53150","T2",0.1
+"T6131","Station de Kerzoualen","Langolen",613,6,"QBO",185368.4632,6798367.4835,600,"56685","T1",0.1
+"T6141","Usine de Troheir","Quimper",614,6,"QBO",169798.6836,6792232.9291,16000,"3059810","T4",0.15
+"T6142","Station de Kernisy","Quimper",614,6,"QBO",169920.709,6790246.2069,4000,"1116728","CAP",0.2
+"T7002","Usine de Guy Robin","SMA",700,7,"SMA",175893.3367,6810433.6735,20000,"2101769","CAP",0.2
+"T7001","Usine de Coatigrac'h","SMA",700,7,"SMA",174849.1038,6811515.348,9000,"2256439","CAP",0.2
