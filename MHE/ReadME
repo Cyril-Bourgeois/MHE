@@ -1,16 +1,19 @@
 Model Description
 The model contains 9 python files.
 - Chapeau.py
+   -param_cout.py
+  - param_scenario.py
   - lecture_data.py
   - fonctions.py
   - Scenario.py
   - Mesure_Gestion.py
   - Model_MHE.py
-  - param_cout.py
-  - param_scenario.py
+  - export.py
+ 
 
 
-Chapeeau.py is the master File. 
-  It calls all the python file which are subpart of the model.
-  This file contains the definition of the paths for data and results
-  This file allows you to manually activate the scenarios and adaptation mesaures you wish to simulate.
+Chapeeau.py is the master File:  
+  - This is the only file to launch in python. 
+  - This file contains the definition of the paths for data and results
+  - This file allows you to manually activate the scenarios and adaptation mesaures you wish to simulate.
+  - It calls all the python file which are subpart (the 8 others .py files) of the model and the optimisation solver.
