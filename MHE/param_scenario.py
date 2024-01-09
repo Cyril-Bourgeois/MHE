@@ -18,19 +18,19 @@ if Scenario_hydro == "Ref" :
          Stock_SM=dossier_Hydro+'AAA_Monthly-2015-DOE-1.8 correction-1.csv'
          Stock_Kerrous=dossier_Hydro_kerrous+'AAA_Monthly-2015-DOE-0.38 correction-1.csv'
      
-if Scenario_hydro=="DOE":
+if Scenario_hydro=="LWTF":
          scenario_ouv_hydro=["K_hydro_moy_1", "K_hydro_moy_2", "K_hydro_moy_3", "K_hydro_moy_4", "K_hydro_moy_5","K_hydro_moy_6",
                  "K_hydro_moy_7", "K_hydro_moy_8", "K_hydro_moy_9", "K_hydro_moy_10", "K_hydro_moy_11", "K_hydro_moy_12"] 
          Stock_SM=dossier_Hydro+'AAA_Monthly-2015-DOE-2.15 correction-1.csv'
          Stock_Kerrous=dossier_Hydro_kerrous+'AAA_Monthly-2015-DOE-0.38 correction-1.csv'
          scenario_surf=[1,1,1,1,1,1,1,1,1,1,1,1]
-if Scenario_hydro == "Sec":
+if Scenario_hydro == "Dry":
          scenario_ouv_hydro=["K_hydro_sec_1", "K_hydro_sec_2", "K_hydro_sec_3", "K_hydro_sec_4", "K_hydro_sec_5","K_hydro_sec_6",
                   "K_hydro_sec_7", "K_hydro_sec_8", "K_hydro_sec_9", "K_hydro_sec_10", "K_hydro_sec_11", "K_hydro_sec_12"] 
          Stock_SM=dossier_Hydro+'AAA_Monthly-2011-DOE-1.8 correction-1.csv'
          Stock_Kerrous=dossier_Hydro_kerrous+'AAA_Monthly-2011-DOE-0.38 correction-1.csv'
          scenario_surf=[1,1,1,1,1,1,1,1,1,1,1,1]
-if Scenario_hydro == "SecEtendue":
+if Scenario_hydro == "ExtendedDry":
          scenario_ouv_hydro=["K_hydro_Etendue_1", "K_hydro_Etendue_2", "K_hydro_Etendue_3", "K_hydro_Etendue_4", "K_hydro_Etendue_5","K_hydro_Etendue_6",
                   "K_hydro_Etendue_7", "K_hydro_Etendue_8", "K_hydro_Etendue_9", "K_hydro_Etendue_10", "K_hydro_Etendue_11", "K_hydro_Etendue_12"] 
          Stock_SM=dossier_Hydro+'AAA_Monthly-2011-DOE-1.8 correction-0.85.csv' 
