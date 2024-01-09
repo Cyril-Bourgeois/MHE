@@ -14,6 +14,17 @@ The model contains 9 python files.
 
 Chapeeau.py is the master File:  
   - This is the only file to launch in python. 
-  - This file contains the definition of the paths for data and results
+  - This file contains the definition of the paths for input datas and results
   - This file allows you to manually activate the scenarios and adaptation mesaures you wish to simulate.
   - It calls all the python file which are subpart (the 8 others .py files) of the model and the optimisation solver.
+
+The subpart are briely described in their order of call by chapeau.py
+param_scenario.py :
+param_cout.py :
+fonctions.py :
+lecture_data.py :
+Scenario.py : 
+Mesure_gestion.py : 
+Model_MHE.py :
+export.py :
+
