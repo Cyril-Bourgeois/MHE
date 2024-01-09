@@ -14,7 +14,7 @@ Created on Fri Nov 26 19:08:47 2021
 if Scenario_hydro == "Ref" :
          scenario_ouv_hydro=["K_hydro_moy_1", "K_hydro_moy_2", "K_hydro_moy_3", "K_hydro_moy_4", "K_hydro_moy_5","K_hydro_moy_6",
                  "K_hydro_moy_7", "K_hydro_moy_8", "K_hydro_moy_9", "K_hydro_moy_10", "K_hydro_moy_11", "K_hydro_moy_12"]
-         scenario_surf=[1,1,1,1,1,1,1,1,1,1,1,1]
+         scenario_surf=[1,1,1,1,1,1,1,1,1,1,1,1] #New Carrer monthly productivity constraint with respect to climate
          Stock_SM=dossier_Hydro+'AAA_Monthly-2015-DOE-1.8 correction-1.csv'
          Stock_Kerrous=dossier_Hydro_kerrous+'AAA_Monthly-2015-DOE-0.38 correction-1.csv'
      
