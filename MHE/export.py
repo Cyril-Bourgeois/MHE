@@ -9,7 +9,7 @@ Created on Wed Dec 15 17:24:05 2021
 ###############################################################################
 ##############################  EXPORTS   #####################################
 ###############################################################################
-
+# Writring transport cost results
 output_transport = []
 for (i,j) in Routes_reel :
         for t in time: 
@@ -25,7 +25,7 @@ for (i,j) in Routes_reel :
                 }
             output_transport.append(Cout_transfort_f)
 outputLiensReel_df = pd.DataFrame.from_records(output_transport).sort_values(['Depart','Arrivee','Months'])
-
+# Writring transport cost results (failure cost)
 output_transport_def = []
 for (i,j) in Routes_def :
         for t in time: 
@@ -45,25 +45,9 @@ outputLiens_df=pd.concat([outputLiensReel_df, outputLiensDef_df])
 outputLiens_df.to_csv(name_Sorties+'Liens'+'.csv' )
 
 
-# FIXME : est-ce qu'on a de la donnée pour tous les liens sur les Q de l'année de référence ?
-#outputQ = []
-#for  (i,j, t) in model.Q:
-#    var_output = {
-#       'Depart': i,
-#        'Arrivee': j,
-#        'Months': Months[t-1],
-#        'Production': model.Q[(i,j,t)].value,
-#        #'Cout_transport': cout_transport( model.Q[(i,j,t)].value,  Liens.Diametre[(i,j)],  1000*Liens.distance[(i,j)]) 
-#    }
-#    outputQ.append(var_output)
-#outputQ_df = pd.DataFrame.from_records(outputQ).sort_values(['Depart','Arrivee','Months'])
-##output_df.set_index([('Months')], inplace=True)
-#outputQ_df
-#outputQ_df.to_csv(name_Sorties+'_'+'results_Liens'+'.csv' )
 
+### Writing URD results (Satisfying Demand, Failure, Export)
 
-### Pour les URD : satisfaction des demandes et défaillance 
-# FIXME : ajouter demande de référence (année de ref)
 outputURD = []
 for u in List_URD :
         for t in time:   
@@ -93,8 +77,8 @@ outputURD_df = pd.DataFrame.from_records(outputURD).sort_values(['URD','index_mo
 outputURD_df
 outputURD_df.to_csv(name_Sorties+'URD'+'.csv' )
 
-### Pour les OUV de prélèvement : prélèvements par rapport aux capacités 
-# FIXME : ajouter prélèvement de référence (année de ref)
+### Wrtining Withdrawal result (Abstraction flux and cost, saturation rate )
+
 outputOUV = []
 for u in List_OUV :
     for t in time:  
@@ -124,8 +108,7 @@ outputOUV_df = pd.DataFrame.from_records(outputOUV).sort_values(['OUV','index_mo
 outputOUV_df
 outputOUV_df.to_csv(name_Sorties+'OUV'+'.csv' )
 
-
-### Pour les stations de traitement (TTP) :
+### Wrtining Tratement plant result (Treated flux and cost, saturation rate )
 outputTTP = []
 for u in List_usine :
 	for t in time:  
@@ -154,7 +137,7 @@ outputTTP_df = pd.DataFrame.from_records(outputTTP).sort_values(['TTP','index_mo
 outputTTP_df
 outputTTP_df.to_csv(name_Sorties+'TTP'+'.csv' )
 
-### Pour les noeuds intermédiaires (pour vérifier facilement IN = OUT) ### EN COURS
+### Writing Node flux (to easily verify that IN = OUT)
 outputNodes = []
 for u in List_noeud :
 	for t in time:  
@@ -173,7 +156,7 @@ outputNodes_df = pd.DataFrame.from_records(outputNodes).sort_values(['Noeud','Mo
 outputNodes_df
 outputNodes_df.to_csv(name_Sorties+'_'+'Noeuds'+'.csv' )
 
-### Pour Le réservoir Saint-Michel
+### Wrting MAjor Dam Results (Brennilis)
 outputSM = []
 for t in time: 
       Vol_preleve_Total = model.Q[(('29000151', 'T7001'),t)].value +  model.Q[(('29000152', 'T7002'),t)].value
@@ -201,9 +184,7 @@ outputSM_df = pd.DataFrame.from_records(outputSM).sort_values(['index_mois'])
 outputSM_df
 outputSM_df.to_csv(name_Sorties+'_'+'SMA'+'.csv' )
 
-### Pour les achats au SMA ? pour regarder le total sur l'ensemble des EPCI / capacités de l'Aulne par ex. 
-### Je ne vois pas trop les sorties que tu veux. On peut sortir la production des usines du SMA ou ce qui sort des usines du SMA, ou les URP alimentés directemet par un reservoir SMA
-### mais dur d'isoler l'achat du SMA des URD pour lesquelles l'eau est passé par une nodes!
+### Wrting Secondary Dam Results (Kerrous)
 outputKerrous = []
 for t in time: 
       Vol_preleve_Total = model.Q[(('29000327', 'T6141'),t)].value
