@@ -21,10 +21,12 @@ Chapeeau.py is the master File:
 The subpart are briely described in their order of call by chapeau.py
 param_scenario.py :
 param_cout.py :
+   - file contains cost using in definition of cost function (stocked in function.py and used in Model_MHE.py)
 fonctions.py :
 lecture_data.py :
 Scenario.py : 
 Mesure_gestion.py : 
 Model_MHE.py :
 export.py :
+   - files who contains codes to export all results 
 
