@@ -23,7 +23,8 @@ param_scenario.py :
 param_cout.py :
    - file contains cost using in definition of cost function (stocked in function.py and used in Model_MHE.py)
 fonctions.py :
-lecture_data.py :
+lecture_data.py : 
+   - File for reading data
 Scenario.py : 
 Mesure_gestion.py : 
 Model_MHE.py :
