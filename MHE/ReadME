@@ -28,6 +28,7 @@ lecture_data.py :
    - File for reading data
 Scenario.py : 
 Mesure_gestion.py : 
+   - file contains implementation of adaptation measures
 Model_MHE.py :
 export.py :
    - files who contains codes to export all results 
