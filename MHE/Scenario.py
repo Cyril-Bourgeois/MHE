@@ -6,19 +6,18 @@ Created on Thu Dec 16 10:39:23 2021
 """
 
 ###############################################################################
-###############          Parametre      Scenario           ###################
+###############          Parameter Scenario         ###################
 ###############################################################################
 
 
-################## Application des scénarios   ################################
+################## Apply scénario   ################################
             
 
 
-#### Application des paramètres du scénario hydro sur les ouvrages:
-     
-#Ouvrages[Months_Kh]=Ouvrages[scenario_ouv_hydro]
+#### Application of hydro scenario parameters to structures:
 
-#### Application des Scénarios Métabolites
+
+#### Application of Metabolite Scenarios (not studied in article)
 if Scenario_Metabolite == "Abandon" or Scenario_Metabolite == "AbandonMax":
     for i in Usine_Meta:
         Usines.loc[i,'K']=Indice_Metabolite
@@ -29,8 +28,8 @@ if Scenario_Metabolite ==  "AbandonMaxK":
         Ouvrages.loc[i,'K_aut_jr']=Indice_For
         
 
-### Application de la hausse de la population
-if Activation_Hausse_Population== "Oui":
+### Application of the population increase
+if Activation_Hausse_Population== "Yes":
     for com in Communes_hausse_pop:
         Demande_reference=np.mean(Demande.loc[com,[Months[0],Months[1],Months[3],Months[10],Months[11]]])
         delta_demande=Demande_reference*Coef_pop
@@ -38,31 +37,31 @@ if Activation_Hausse_Population== "Oui":
             Demande.loc[com,Months[t-1]] =Demande.loc[com,Months[t-1]]  + delta_demande          
       
 
-### Application de l'étalement Saisonnier
-if Activation_Etalement_Saisonnier== "Oui":
+### Application of Seasonal Spread
+if Activation_Etalement_Saisonnier== "Yes":
     for com in Communes_touristiques:
-      Demande.loc[com,Months[8]] =Demande.loc[com,Months[5]] # o	Septembre : Application du niveau de consommation historique du mois de Juin
-      Demande.loc[com,Months[9]] =Demande.loc[com,Months[4]] # o	Octobre : Application du niveau de consommation historique du mois de Mai 
-      Demande.loc[com,Months[10]]=Demande.loc[com,Months[3]] # o	Novembre : Application du niveau de consommation historique du mois d’Avril 
-      Demande.loc[com,Months[3]] =Demande.loc[com,Months[4]] # o	Avril : Application du niveau de consommation historique du mois de Mai 
-      Demande.loc[com,Months[4]] =Demande.loc[com,Months[5]] # o	Mai : Application du niveau de consommation historique du mois de Juin 
-      Demande.loc[com,Months[5]] =9 # o	Juin : Augmentation de la consommation, pour atteindre 9% de la consommation annuelle historique.
+      Demande.loc[com,Months[8]] =Demande.loc[com,Months[5]] # o	September: Application of June's historical consumption level
+      Demande.loc[com,Months[9]] =Demande.loc[com,Months[4]] # o	October: Application of May's historical consumption level 
+      Demande.loc[com,Months[10]]=Demande.loc[com,Months[3]] # o	November: Application of April's historical consumption level 
+      Demande.loc[com,Months[3]] =Demande.loc[com,Months[4]] # o	April: Application of May's historical consumption level
+      Demande.loc[com,Months[4]] =Demande.loc[com,Months[5]] # o	May: Application of June's historical consumption level
+      Demande.loc[com,Months[5]] =9                          # 	June: Consumption rises to 9% of historical annual consumption.
 
-### Application de la hausse estivale de touristique
-if Activation_Hausse_tourisme== "Oui":
+### Application of the summer tourist increase
+if Activation_Hausse_tourisme== "Yes":
     for com2 in Com_hausse_toursime:
         delta=(Demande.loc[com2,Months[7]] -Demande.loc[com2,Months[6]])/Demande.loc[com2,Months[6]]
-        Demande.loc[com,Months[6]] =Demande.loc[com,Months[7]]            # o	La fréquentation actuelle du mois d’aout est appliquée au mois de juillet (soit +7,5% de demande en juillet)
-        Demande.loc[com,Months[7]] =Demande.loc[com,Months[7]]*(1+delta)  # o	Le delta de fréquentation entre juillet et aout est ajouté à la fréquentation du mois d’aout (soit +7% de demande en aout). 
+        Demande.loc[com,Months[6]] =Demande.loc[com,Months[7]]            # o	Current August demand applied to July (i.e. +7.5% demand in July)
+        Demande.loc[com,Months[7]] =Demande.loc[com,Months[7]]*(1+delta)  # o	The delta in demand between July and August is added to the August demand (i.e. +7% demand in August). 
 
-### Application du scénario de crise
-if Activation_Crise== "Oui":
+###Application of the crisis scenario
+if Activation_Crise== "Yes":
     coef_crise=0
-    df_crise.loc[df_crise['Months']==Mois_crise,'crise'] =coef_crise ### A activiter sur les USines SMA.!!
+    df_crise.loc[df_crise['Months']==Mois_crise,'crise'] =coef_crise 
     
-### Actication Scénario Goyen
-if Activation_Goyen== "Non": # Pour rappel par défault on apprivionne 15j, et quand on active on apprivisionne le mois entier
+### Activation Goyen scenario
+if Activation_Goyen== "No":  # As a reminder, the default setting is 15 days, and when activated, the entire month is billed.
     Demande.loc[Demande['Nom_URD']=="Goyen",'VCA2019']=Demande.loc[Demande['Nom_URD']=="Goyen",'VCA2019']/2
     
-if Activation_CapSizun== "Non" :#(on approviosonne pas le sizunpar défault)    
+if Activation_CapSizun== "No" :#(sizun is not the default setting)     
     Demande.loc[Demande['Nom_URD']=="Nord-Cap-Sizun",'VCA2019']=0
