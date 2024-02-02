@@ -32,6 +32,7 @@ Scenario.py :
 Mesure_gestion.py : 
    - file contains implementation of adaptation measures
 Model_MHE.py :
+   - files contains the core of model 
 export.py :
    - files who contains codes to export all results 
 
