@@ -20,7 +20,7 @@ Chapeeau.py is the master File:
 
 The subpart are briely described in their order of call by chapeau.py
 param_scenario.py :
-   
+  - Files contains parameter scenario 
 param_cout.py :
    - file contains cost using in definition of cost function (stocked in function.py and used in Model_MHE.py)
 fonctions.py :
