@@ -9,7 +9,6 @@ Created on Fri Nov 26 19:08:47 2021
 ###############           Parametre      Scenario           ###################
 ######################à#########################################################
 
-
 #### Paramètre  du Scénario Hydro
 if Scenario_hydro == "Ref" :
          scenario_ouv_hydro=["K_hydro_moy_1", "K_hydro_moy_2", "K_hydro_moy_3", "K_hydro_moy_4", "K_hydro_moy_5","K_hydro_moy_6",
@@ -38,7 +37,7 @@ if Scenario_hydro == "ExtendedDry":
          scenario_surf=[1,1,1,1,1,1, 0.75,0.75,0.75,0.75,0.85,1]
 
 
-#### PAramtre du Scénario Métabolité
+#### Scenario parameter Metabolite
 if  Scenario_Metabolite == "Abandon":
     Indice_Metabolite=0
     Usine_Meta=["T1052","T2011","T2031","T6051","T3031"]  # CCPCAM: Pouldu, DzCO:"Nankou" et "Kerstrat", QBO:"Kernevez", CCHPB:"Saint-Ronan"
@@ -54,81 +53,61 @@ elif Scenario_Metabolite == "AbandonMaxK":
     Indice_For=0
     For_meta=['29000247','29001504','29000997']
 
-
-#### PAramètre du scénario de demande
-### Définition des communes touristiques :
-# CCPCAM : Les 2 URD de la presqu’ile de Crozon
-# CCPCP : Saint-Nic, Plomordien, Ploëven, Plonevez-Porzay,
+#### PArameter of demand scenario
+### Definition of tourist communities :
+# CCPCAM: The 2 URDs of the Crozon peninsula
+# CCPCP: Saint-Nic, Plomordien, Ploëven, Plonevez-Porzay,
 # DzCo : Douarnenez, Kerlaz, Pouldergat
 # QBO : Plomelin
 # CCPF : Bénodet, Fouesnant, la Forêt-Fouesnant
-# CCHPB :  Plozévet, Pouldreuzic, Plovan, Tréogat
+# CCHPB: Plozévet, Pouldreuzic, Plovan, Tréogat
 
-
-### Hausse_Population
+### Population_Increase
 Coef_pop=0.1
 Communes_hausse_pop=['101','102','201','202','204','303','401','402','403','502','504','505','506','606']
 
-### Etalement Saisonnier ## Ajout de Quimper 
+### Seasonal spread ## Addition of Quimper 
 Communes_touristiques=Communes_hausse_pop+['614']
 #voir scenario.py
-### Hausse Toursime 
+### Tourisme Increase 
 Com_hausse_toursime=['101','102']
 #voir Scénario.py
 
 
-### Scénario crise:
+### Crisis Scenario:
 index_time=time
 df_crise = pd.DataFrame({'index_time':index_time,'Months':Months})
 df_crise=df_crise.assign(crise=1)
 df_crise=df_crise.set_index('index_time') 
-
-####Old!
-# #### Paramètre du Scénario de Demande :
-# if Scenario_Demande == "Référence" :
-#     coef_demande = 1
-#     Months_D=Months
-# elif Scenario_Demande =="2x_aout":
-#     coef_demande = 2
-#     Months_D=Months[8-1]
-# #### Définition des Contraintes hydro :
-# if Scenario_K_hydro == "Actuel" :
-#      coef_hydro = 1
-#      Months_Kh=scenario_ouv_hydro
-# elif Scenario_K_hydro == "Baisse20_Aout" :
-#     coef_hydro = 0.7
-#     Months_Kh= scenario_ouv_hydro[8-1]
     
-### Scénario Gestion
-# Baisse demande eau
+### Adaptation Scenario
+# Lower water demand
 param_baisse_demande=0.10
 param_baisse_demande2=0.05
-# Nouvelles carrières
+# New Career
 Stock_Plessis=500000
 Stock_Loquefret=8000000
 Stock_MenezMolve=800000
-
 SaintEvarzec= '29000197'  #Alimente PenAlen
 
 Coef_Plessis=1-0.25
 Coef_Loquefret=1-0.4
 Coef_MenezMolve=1-0.4
   
-#Secrusitation forage
-#Sites concernés :
-#•	CCPCAM : Goastallan, Le pouldu, Pen Ar Vern
-#•	CCPCP : Runigou Vihan, Plomodiern (Dour bihan), Châteaulin (les 2 puits), Moulin neuf, Kerbalaen (3sites)
-#•	CCPF : Cheffontaines, Roud gwen, Trouarn
-#•	QBO : Reuniat, Goutliquer, Kernevez (renforcement du forage existant)
+#Secure drilling
+#Sites concerned :
+#- CCPCAM: Goastallan, Le pouldu, Pen Ar Vern
+#- CCPCP: Runigou Vihan, Plomodiern (Dour bihan), Châteaulin (the 2 wells), Moulin neuf, Kerbalaen (3sites)
+#- CCPF: Cheffontaines, Roud gwen, Trouarn
+#- QBO: Reuniat, Goutliquer, Kernevez (reinforcement of existing well)
 Securisation_forage=['29000275','29000274','29000194',
                      '29000232','29000258','29001540','29001522', '29000203','29000251','29000999','29000998',
                      '29000157','29002110','29001319',
                      '29000247','29001504','29000255','29000172']   
 Captage_ref='29001501'
 
-
-# Résilience Stockage
-## Concerne Poraon et Kergaouelen/keryannes
+# Resilience Storage
+## Concerns Poraon and Kergaouelen/keryannes
 SPoraon=['29000279']
 SKeryannes=['29000190','29000190']
 
@@ -136,8 +115,7 @@ SKeryannes=['29000190','29000190']
 ### Moulin <--> Douarnenez
 Interco_globale1=[('201_R2031'),
                  ('R2031_201')]
-### Usine de Troheïr vers Cuzon 
-
+### ### Troheïr plant --> Cuzon  
 Interco_globale2=[('T6141_R6141')]
 
 #Augmentation Kerstrat 100 000-->300 000
